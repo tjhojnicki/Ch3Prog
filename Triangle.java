@@ -10,10 +10,12 @@ public class Triangle
 {
     public static void main(String[] args)
     {
+        //create variables
         String choice;
         char pick;
         Scanner scan= new Scanner(System.in);
         
+        //asks the user whether they want angles or sides
         System.out.println("Would you like to enter angles or sides?");
         choice=scan.next();
         pick=choice.charAt(0);
@@ -22,8 +24,10 @@ public class Triangle
             case('A'): 
             case('a'):
             {
+                //creates angle length variables
                 int a1,a2,a3;
                 
+                //has the user input the angle measures
                 System.out.println("Please enter the three angles");
                 a1=scan.nextInt();
                 a2=scan.nextInt();
@@ -46,23 +50,30 @@ public class Triangle
             case('S'):
             case('s'):
             {
-               int s1,s2,s3;
-               
-               System.out.println("Please enter three different side lengths");
+              //creates variables for side lengths
+              int s1,s2,s3;
+              
+              //has the user input side lengths
+              System.out.println("Please enter three different side lengths");
               s1=scan.nextInt();
               s2=scan.nextInt();
               s3=scan.nextInt();
               
+              //Checks to see if this can actually be a triangle or not
               if(s1+s2>s3 && s2+s3>s1 && s1+s3>s2)
                 System.out.println("This a triangle");
+              //if the side lengths don't make a triangle
               else
                 System.out.println("This is not a triangle");
               
+              //check if there are two equal sides and one side that isn't
                if(s1==s2 && s1!=s3||s1==s3 && s3!=s2|| s2==s3 && s2!=s1)
                     System.out.println("This is an isosceles triangle");
               
+              //checks if all of the sides are equal
               else if (s1==s2 && s2==s3)
                     System.out.println("This is an equilateral triangle");
+              //checks if one side legth squared plus another side length squared is equal to the third length squared
               else if(Math.pow(s1,2)+Math.pow(s2,2)==Math.pow(s3,2)|| Math.pow(s2,2)+Math.pow(s3,2)==Math.pow(s1,2) || Math.pow(s1,2)+Math.pow(s3,2)==Math.pow(s2,2))
                     System.out.println("This is a right triangle");
            
